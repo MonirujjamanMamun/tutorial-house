@@ -7,6 +7,8 @@ import DataNotFound from './Components/DataNotFound/DataNotFound';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LogIn from './Components/LogIn/LogIn';
+import Register from './Components/Register/Register';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/servises' element={<Servises></Servises>}></Route>
+        <Route path='/login' element={<LogIn></LogIn>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element ={<DataNotFound></DataNotFound>}></Route>
       </Routes>
       <Footer></Footer>

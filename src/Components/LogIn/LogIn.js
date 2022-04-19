@@ -1,34 +1,31 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.inti';
 import './LogIn.css';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const LogIn = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-
-  if (error) {
-    return (
-      <div>
-        <p>Error: {error.message}</p>
-      </div>
-    );
-  }
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-  if (user) {
-    return (
-      <div>
-        <p>Signed In User: {user.email}</p>
-      </div>
-    );
-  }
+  let form = location?.state?.form?.pathname || '/';
 
   const handelGoogle = () => {
     signInWithGoogle()
+  }
+  if (user) {
+    navigate(form, { replace: true });
+  }
+  const handelEmailPassword = event => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    signInWithEmailAndPassword(email, password);
   }
 
   return (
@@ -42,12 +39,12 @@ const LogIn = () => {
         <p> Or </p>
         <div className='horizental-line'> </div>
       </div>
-      <Form className='w-50 mx-auto'>
+      <Form onSubmit={handelEmailPassword} className='w-50 mx-auto'>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
-          <Form.Control type='email' placeholder='Enter email' required />
+          <Form.Control ref={emailRef} type='email' placeholder='Enter email' required />
         </Form.Group>
         <Form.Group className='mb-3' controlId='formBasicPassword'>
-          <Form.Control type='password' placeholder='Password' required />
+          <Form.Control ref={passwordRef} type='password' placeholder='Password' required />
         </Form.Group>
         <p>Forgot Password?</p>
         <Button variant='primary w-50 mx-auto d-block mb-2' type='submit'>

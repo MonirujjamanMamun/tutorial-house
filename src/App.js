@@ -11,6 +11,7 @@ import Register from './Components/Register/Register';
 import AboutMe from './Components/AboutMe/AboutMe';
 import Blog from './Components/Blog/Blog';
 import ChakeOut from './Components/ChakeOut/ChakeOut';
+import RequreAuth from './Components/RequreAuth/RequreAuth';
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
         <Route path='/aboutme' element={<AboutMe></AboutMe>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/chakeout' element={
-         
-            <ChakeOut></ChakeOut>}
-          
+          <RequreAuth>
+            <ChakeOut></ChakeOut>
+          </RequreAuth>}
         ></Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
@@ -32,7 +33,7 @@ function App() {
       </Routes>
       <Footer></Footer>
 
-    </div>
+    </div >
   );
 }
 

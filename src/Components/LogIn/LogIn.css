@@ -1,0 +1,14 @@
+.or-section {
+    display: flex;
+    justify-content: center;
+
+}
+
+.horizental-line {
+    height: 5px;
+    background-color: black;
+}
+
+.or-section p {
+    margin-top: 5px;
+}

@@ -1,9 +1,14 @@
 import React from 'react';
 import { Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Servise = ({ subject }) => {
     console.log(subject)
     const { name, price, img, description } = subject;
+    const navigate = useNavigate()
+    const handelNavigate=()=>{
+        navigate('/chakeout');
+    }
     return (
         <div className="col">
             <div className="card h-100">
@@ -13,7 +18,7 @@ const Servise = ({ subject }) => {
                     <h5 className="card-title text-center">{price}</h5>
                     <p className="card-text">{description}</p>
                 </div>
-                    <Button className='d-block mx-auto'>See Details</Button> 
+                    <Button onClick={handelNavigate} className='d-block mx-auto'>See Details</Button> 
             </div>
         </div>
 

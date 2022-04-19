@@ -15,7 +15,7 @@ const Home = () => {
                     <h6 className='fw-bold wlc-text'>WELCOME TO MY WORLD</h6>
                     <h3 className='fw-bolder fs-1'>Hi, I'm <span className='pink-color'>Monirujjaman</span></h3>
                     <h3 className='fw-bolder fs-1'><span className='pink-color'>a</span> Professional Teacher.<span className='pink-color'>|</span></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi minima harum enim dolores ipsa, eveniet exercitationem natus est dignissimos nisi eligendi sint, fugiat laboriosam atque magni consectetur sunt ad. Numquam.</p>
+                    <p>I am Monirujjaman Mamun. I am a Professional teacher. I have many years teaches experience.</p>
                 </Col>
                 <Col xs={12} md={6} lg={6}>
                     <img className='img-thumbnail' src={Teacher} alt="teacher" />

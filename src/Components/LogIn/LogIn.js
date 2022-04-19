@@ -12,15 +12,20 @@ const LogIn = () => {
   const passwordRef = useRef('');
   const navigate = useNavigate();
   const location = useLocation();
+  let errorElement;
 
-  let form = location?.state?.form?.pathname || '/';
 
   const handelGoogle = () => {
     signInWithGoogle()
   }
-  if (user) {
-    navigate(form, { replace: true });
+  if (error || googleError) {
+    errorElement = <p className='text-danger'>Error: {error?.message}</p>
   }
+
+  if (user) {
+    navigate('/chakeout')
+  }
+
   const handelEmailPassword = event => {
     event.preventDefault();
     const email = emailRef.current.value;
@@ -50,6 +55,7 @@ const LogIn = () => {
         <Button variant='primary w-50 mx-auto d-block mb-2' type='submit'>
           Log In
         </Button>
+        {errorElement}
       </Form>
       <div className='w-50 mx-auto'><hr></hr></div>
       <div className='d-flex justify-content-between w-50 mx-auto'>

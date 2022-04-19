@@ -15,19 +15,21 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
-
-    if(user){
-        navigate('/');
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    if (user) {
+        navigate('/chakeout');
     }
 
-    const handelEmailPassword = event=>{
+    const handelEmailPassword = event => {
         event.preventDefault()
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmPassword = event.target.confirmPassword.value;
         createUserWithEmailAndPassword(email, password);
-        
+
     }
     return (
         <div className='container w-50 mx-auto card bg-gray mt-3 h-100'>

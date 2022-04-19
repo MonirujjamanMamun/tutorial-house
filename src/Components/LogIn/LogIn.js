@@ -3,18 +3,39 @@ import { Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.inti';
 import './LogIn.css';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const LogIn = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
+
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (user) {
+    return (
+      <div>
+        <p>Signed In User: {user.email}</p>
+      </div>
+    );
+  }
+
+  const handelGoogle = () => {
+    signInWithGoogle()
+  }
+
   return (
     <div className='container w-50 mx-auto card bg-gray mt-3'>
       <h2 className='text-primary text-center mt-2'> Log In </h2>
-      <Button variant='primary w-50 mx-auto d-block mb-2' type='submit'>
+      <Button onClick={handelGoogle} variant='primary w-50 mx-auto d-block mb-2' type='submit'>
         Continue With Google
-      </Button>
-      <Button variant='primary w-50 mx-auto d-block mb-2' type='submit'>
-        Continue With GitHub
       </Button>
       <div className='or-section'>
         <div className='horizental-line'> </div>
@@ -33,7 +54,7 @@ const LogIn = () => {
           Log In
         </Button>
       </Form>
-        <div className='w-50 mx-auto'><hr></hr></div>
+      <div className='w-50 mx-auto'><hr></hr></div>
       <div className='d-flex justify-content-between w-50 mx-auto'>
         <p>Don't have an account?</p>
         <Link className='text-decoration-none' to='/register'>Register Now</Link >

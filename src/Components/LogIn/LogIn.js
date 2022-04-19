@@ -3,11 +3,12 @@ import { Button, Form } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.inti';
 import './LogIn.css';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const LogIn = () => {
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const [sendPasswordResetEmail, sending, passError] = useSendPasswordResetEmail(auth);
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const navigate = useNavigate();
@@ -32,6 +33,11 @@ const LogIn = () => {
     const password = passwordRef.current.value;
     signInWithEmailAndPassword(email, password);
   }
+  const forgetPassword=()=>{
+    const email= emailRef.current.value;
+    sendPasswordResetEmail(email)
+    alert('Email sent')
+  }
 
   return (
     <div className='container w-50 mx-auto card bg-gray mt-3'>
@@ -51,7 +57,7 @@ const LogIn = () => {
         <Form.Group className='mb-3' controlId='formBasicPassword'>
           <Form.Control ref={passwordRef} type='password' placeholder='Password' required />
         </Form.Group>
-        <p>Forgot Password?</p>
+        <p onClick={forgetPassword}>Forgot Password?</p>
         <Button variant='primary w-50 mx-auto d-block mb-2' type='submit'>
           Log In
         </Button>

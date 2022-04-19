@@ -7,10 +7,10 @@ const Servise = ({ subject }) => {
     return (
         <div className="col">
             <div className="card h-100">
-                <img src={img} className="card-img-top" alt="" />
+                <img src={img} className="card-img-top w-75 h-75 mx-auto img-thumbnail mt-1" alt="" />
                 <div className="card-body">
-                    <h3 className="card-title">{name}</h3>
-                    <h5 className="card-title">{price}</h5>
+                    <h3 className="card-title text-center">{name}</h3>
+                    <h5 className="card-title text-center">{price}</h5>
                     <p className="card-text">{description}</p>
                 </div>
                     <Button className='d-block mx-auto'>See Details</Button> 

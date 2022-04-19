@@ -5,7 +5,7 @@ import './LogIn.css';
 
 const LogIn = () => {
   return (
-    <div className='container w-50 mx-auto'>
+    <div className='container w-50 mx-auto card bg-gray mt-3'>
       <h2 className='text-primary text-center mt-2'> Log In </h2>
       <Button variant='primary w-50 mx-auto d-block mb-2' type='submit'>
         Continue With Google

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardGroup, Col, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
 
 const Servise = ({ subject }) => {
     console.log(subject)
@@ -13,6 +13,7 @@ const Servise = ({ subject }) => {
                     <h5 className="card-title">{price}</h5>
                     <p className="card-text">{description}</p>
                 </div>
+                    <Button className='d-block mx-auto'>See Details</Button> 
             </div>
         </div>
 

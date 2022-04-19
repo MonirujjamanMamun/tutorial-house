@@ -9,7 +9,7 @@ const Home = () => {
     const [subjects, setSubject] = useSubject();
 
     return (
-        <div >
+        <div className='my-2'>
             <Row className='container mx-auto'>
                 <Col xs={12} md={6} lg={6}>
                     <h6 className='fw-bold wlc-text'>WELCOME TO MY WORLD</h6>
@@ -18,7 +18,7 @@ const Home = () => {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi minima harum enim dolores ipsa, eveniet exercitationem natus est dignissimos nisi eligendi sint, fugiat laboriosam atque magni consectetur sunt ad. Numquam.</p>
                 </Col>
                 <Col xs={12} md={6} lg={6}>
-                    <img className='img-fluid' src={Teacher} alt="teacher" />
+                    <img className='img-thumbnail' src={Teacher} alt="teacher" />
                 </Col>
 
             </Row>

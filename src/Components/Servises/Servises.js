@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import useSubject from '../Hooks/useSubject';
 import Servise from '../Servise/Servise';
 
 const Servises = () => {
-  /*   const [subjects, setSubject] = useState([]);
-
-    useEffect(()=>{
-        fetch('data.json')
-        .then(res=>res.json())
-        .then(data=>setSubject(data))
-    },[]) */
+    const [subjects, setSubject] = useSubject()
     return (
-        <div>
-           {/*  {
-                subjects.map(subject=><Servise key={subject.id} subject={subject}></Servise>)
-            } */}
+        <div className='container'>
+            <div className="row row-cols-1 row-cols-md-3 g-4 mt-2">
+                {
+                    subjects.map(subject => <Servise key={subject.id} subject={subject}></Servise>)
+                }
+            </div>
         </div>
     );
 };

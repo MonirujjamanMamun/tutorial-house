@@ -21,13 +21,17 @@ function App() {
         <Route path='/servises' element={<Servises></Servises>}></Route>
         <Route path='/aboutme' element={<AboutMe></AboutMe>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/chakeout' element={<ChakeOut></ChakeOut>}></Route>
+        <Route path='/chakeout' element={
+         
+            <ChakeOut></ChakeOut>}
+          
+        ></Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
-        <Route path='*' element ={<DataNotFound></DataNotFound>}></Route>
+        <Route path='*' element={<DataNotFound></DataNotFound>}></Route>
       </Routes>
       <Footer></Footer>
-      
+
     </div>
   );
 }

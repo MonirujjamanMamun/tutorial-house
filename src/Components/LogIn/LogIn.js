@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.inti';
 import './LogIn.css';
 
 const LogIn = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
   return (
     <div className='container w-50 mx-auto card bg-gray mt-3'>
       <h2 className='text-primary text-center mt-2'> Log In </h2>

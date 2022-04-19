@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const ChakeOut = () => {
     return (
         <div className='h-100 w-100'>

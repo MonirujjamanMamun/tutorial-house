@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Footer = () => {
     return (
         <div className='bg-dark text-center p-3 my-3'>

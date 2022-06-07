@@ -9,8 +9,9 @@ code link [code link](https://github.com/programming-hero-web-course-4/independe
 
 # In the project use:
 - create React app
-- use Router
-- use boostrap
-- use firebase
-- use firebase hooks
-- use coustom hooks
+- Router
+- Bootstrap
+- React Bootstrap
+- Firebase
+- Firebase hooks
+- Coustom hooks
